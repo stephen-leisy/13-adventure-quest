@@ -15,7 +15,7 @@ const questID = params.get('id');
 const quest = findById(questData, questID);
 
 h1.textContent = quest.title;
-img.src = '';
+img.src = `../assets/${quest.image}`;
 p.textContent = quest.description;
 console.log(quest.choices[0].result);
 

@@ -1,146 +1,116 @@
 
-const monsters = {
-    id: 'monsters',
-    title: 'A Den of Monsters',
+const bear = {
+    id: 'bear',
+    title: 'explore the bear cave',
     map: {
         top: '89%',
         left: '44%'
     },
-    image: 'monsters.jpg',
+    prerequisites: ['water'],
+    image: 'scary-bear.png',
     description: `
-        You enter the quest chamber only to be confronted by a hoard of
-        monsters. And they look hungry. What do you do?
+        You enter the bear cave to explore and lo and behold there is a bear! It's a hairy bear AND a scary bear
     `,
     choices: [{
-        id: 'negotiate',
-        description: 'Negotiate with them',
+        id: 'roll',
+        description: 'drop to the ground, roll into a ball, and play dead',
         result: `
-            Knowing the monsters are not too bright, you offer to go buy them all
-            turkey dinners from the village pub. They give you 35 gold for meals
-            that will never be delivered. I hope you can live with yourself. 
+            You probably heard this was a good idea, but sadly rolling into ball and playing dead is a rumor that bears started. Lucky for you this bear is scary but also mostly nice so they just slightly mauled you, felt bad about it, and sent you on your way with some gold they found in the park (bears have no use for gold).
         `,
-        hp: 0,
-        gold: 35
-    }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
-        result: `
-            Brandishing your sword you let out a warrior's cry and charge into the monsters
-            hacking and slashing. Before long you stand panting gazing across the bodies of
-            your vanquished foes. The bad news is you take 30 hp damage. The good news is you
-            find 50 gold.
-        `,
-        hp: -30,
-        gold: 50
+        hp: -25,
+        gold: 10
     }, {
         id: 'run',
-        description: 'Run away like good Sir Robin',
+        description: 'Make a hasty, retreat from his lair',
         result: `
-            As you make a dash for the door a giant spider descends and take a bite of flesh,
-            causing 50 hp damage.
+            You made it safely! And can later describe this encounter to friends with adjectives which I guess is like social gold. But also you trip and skin your knee a bit on the way out.
         `,
-        hp: -50,
+        hp: -2,
         gold: 0
+    }, {
+        id: 'talk',
+        description: 'Compliment the bear on their cave',
+        result: `
+            The bear is super stoked that you noticed the effort they put into their home. You stay and chat for a bit and then you say you best get going because its getting late. The bear offers up some gold they found in the park as a parting gift.
+        `,
+        hp: 0,
+        gold: 10
     }]
 };
 
-const dragon = {
-    id: 'dragon',
-    title: 'A Hairy Dragon',
+const water = {
+    id: 'water-hazard',
+    title: 'The bridge is out at the river and its pretty wild',
     map: {
         top: '17%',
         left: '37%'
     },
-    image: 'dragon.jpg',
-    audio: 'dragon.wav',
-    action: 'dragon-growl.aiff',
+    image: 'river.png',
     description: `
-        You run to a nearby village you have heard is being
-        terrorized by a dragon. Sure enough as you rent a room
-        in a local inn, you go outside and see the dragon about
-        to lay seige! What do you do?
+        You come to a bridge crossing over the Bow river, but the bridge has collapsed! You know you have to get to the other side to meet your friends.
     `,
     choices: [{
-        id: 'run',
-        description: 'Get the hell out of the village',
+        id: 'ford',
+        description: 'Try to ford the river',
         result: `
-            You high tail it in the opposite direction. Luckily,
-            in the panic you find a bag on the ground with 15 gold.
-            Unluckily, you trip over a discarded wagon wheel on your
-            way out of town and take 40 hp damage. 
+            You are a pretty good swimmer so you think youll just wade and then swim across. It starts out okay, but the current is REALLY strong and it's a fight to get across. You make it! But you are super tired which I guess affects your hp.
         `,
-        hp: -35,
-        gold: 15
+        hp: -15,
+        gold: 0
     }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
+        id: 'walk',
+        description: 'walk along the river until you find another bridge.',
         result: `
-            You attempt to charge towards the dragon, who sees you approach
-            and let's loose a fireball. You wake up the next morning and the
-            village has been completely burned to the ground.
-            Oh, and you take 45 hp damage.
+           You walk along the river for another few miles until you come to another bridge. BUT THIS BRIDGE HAS A TROLL! But its cool, they only want like 10 gold or maybe just whatever gold you have now with interest later. You pay the troll and are on your way.
         `,
         hp: -45,
         gold: 0
     }, {
-        id: 'archer',
-        description: 'Emulate that guy from LOR who shot an arrow',
+        id: 'boat',
+        description: 'Try and make a raft out of the wood thats left from the bridge',
         result: `
-            Inspired by the legend of Bard the Bowman, you notice a
-            stunned archer standing nearby and take their bow and quiver,
-            climb to the top of a tall tower and take aim. On the dragon's
-            next pass you steady your aim and let one fly. Amazingly,
-            you strike the dragon in the eye, piercing into the brain and
-            killing the dragon instantly. The villagers declare you their hero
-            and award you 90 gold.
+           You did well in shop class, so you could probably make a raft. You start digging through the wood and tying things together with dental floss in your pocket. You make a pretty sick raft if I do say so, and find like 20 gold in the bridge wreckage. Happily you sail across the river.
         `,
         hp: 0,
-        gold: 90
+        gold: 20
     }]
 };
 
-const treasure = {
-    id: 'treasure',
-    title: 'A Golden Treasure',
+const path = {
+    id: 'path',
+    title: 'A fork in the road',
     map: {
         top: '31%',
         left: '5%'
     },
-    prerequisites: ['dragon', 'monsters'],
-    image: 'treasure-chests.png',
-    audio: 'treasure-chests.wav',
-    action: 'chest-opening.wav',
-    description: `
-        As you enter the quest chamber you notice three chests before you.
-        Just as you start to imagine the wealth, you see a giant serpent
-        emerge from the back of the chamber. You'll need to make a run for it,
-        but you have time to open one chest before you take off. Which one 
-        do you choose?
-    `,
+    prerequisites: ['water'],
+    image: 'fork.png',
+
+    description: `The reliable path you are following suddenly forks off in three different directions`,
     choices: [{
-        id: 'wooden',
-        description: 'A Wooden Chest',
-        result: 'You grab 40 gold pieces!',
-        hp: 0,
-        gold: 40
+        id: 'left',
+        description: 'Go left',
+        result: 'You take the left trail and it is actually a passage way throught time and space. You see the dinosaurs, some historical peeps and come out feeling MUCH healthier and probably richer? You also cut a few miles off of your hike!',
+        hp: 20,
+        gold: 20
     }, {
-        id: 'golden',
-        description: 'A Golden Chest',
-        result: 'Oh no! The chest is booby trapped with poison and you take 50 hp damage',
-        hp: -50,
-        gold: 0
+        id: 'middle',
+        description: 'You go straight ahead',
+        result: 'Theres some reaaaal blair witch shit going on on this path. Its scary. Its a bummer. You lose a bunch of gold, you lose your mind, and nobody sees you again. This is the sad scary ending.',
+        hp: -100,
+        gold: -30
     }, {
-        id: 'jeweled',
-        description: 'A Jeweled Chest',
-        result: 'A warm light engulfs you and you gain 35 hp',
-        hp: 35,
+        id: 'right',
+        description: 'You go right',
+        result: 'The path to the right isnt so bad, but you trip a couple times and twist your ankle so thats a bummer.',
+        hp: -10,
         gold: 0
     }]
 };
 
 const quests = [
-    monsters,
-    treasure,
-    dragon,
+    bear,
+    path,
+    water,
 ];
 export default quests;
