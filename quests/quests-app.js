@@ -42,7 +42,16 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
-    const userChoice = formData.get('choice');
-    alert(userChoice);
+    const userChoiceId = formData.get('choice');
+    const userChoice = findById(quest.choices, userChoiceId);
+    alert(userChoice.result);
 
+    const caughtUserData = JSON.parse(localStorage.getItem('USER'));
+    caughtUserData.hp += userChoice.hp;
+    caughtUserData.gold += userChoice.gold;
+    caughtUserData.win++;
+    caughtUserData.completed[quest.id] = quest.id;
+    localStorage.setItem('USER', JSON.stringify(caughtUserData)
+    );
+    window.location = '../map';
 }); 

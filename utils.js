@@ -65,6 +65,7 @@ export function renderIntroScreen() {
             character: formData.get('character'),
             hp: 50,
             gold: 0,
+            win: 0,
             completed: {},
         };
 
