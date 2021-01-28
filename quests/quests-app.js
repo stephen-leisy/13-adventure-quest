@@ -17,7 +17,7 @@ const quest = findById(questData, questID);
 h1.textContent = quest.title;
 img.src = `../assets/${quest.image}`;
 p.textContent = quest.description;
-console.log(quest.choices[0].result);
+// console.log(quest.choices[0].result);
 
 for (let choice of quest.choices) {
     const choiceButton = document.createElement('input');

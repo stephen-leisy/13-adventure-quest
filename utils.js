@@ -71,7 +71,7 @@ export function renderIntroScreen() {
 
         localStorage.setItem('USER', JSON.stringify(userFormData));
 
-        window.location = '../map';
+        window.location = '../map/';
 
     });
 

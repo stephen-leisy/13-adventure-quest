@@ -1,7 +1,7 @@
 
 // import functions and grab DOM elements
 
-import { renderIntroScreen } from "./utils.js";
+import { renderIntroScreen } from './utils.js';
 
 renderIntroScreen();
 
