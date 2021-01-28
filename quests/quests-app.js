@@ -1,15 +1,18 @@
-import { findById } from './quests-utils.js';
+import { findById, incrementData } from './quests-utils.js';
 import questData from '../data.js';
+import { getUserStats, setUserStats, userHealth } from '../utils.js';
 const h1 = document.querySelector('h1');
 const img = document.querySelector('img');
 const p = document.querySelector('p');
 const form = document.querySelector('form');
+const results = document.querySelector('#results-window');
+const healthStats = document.querySelector('#header-hp-gold');
+const p2 = document.createElement('p');
 // const buttonSpot = document.getElementById('button-spot');
 
 
 
 const params = new URLSearchParams(window.location.search);
-
 const questID = params.get('id');
 
 const quest = findById(questData, questID);
@@ -44,14 +47,26 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     const userChoiceId = formData.get('choice');
     const userChoice = findById(quest.choices, userChoiceId);
-    alert(userChoice.result);
+    selectButton.disabled = true;
 
-    const caughtUserData = JSON.parse(localStorage.getItem('USER'));
-    caughtUserData.hp += userChoice.hp;
-    caughtUserData.gold += userChoice.gold;
-    caughtUserData.win++;
+    results.textContent = userChoice.result;
+    const mapButton = document.createElement('button');
+    mapButton.textContent = `return to the park map`;
+    results.append(mapButton);
+
+
+
+
+    const caughtUserData = getUserStats();
+    incrementData(caughtUserData, userChoice);
     caughtUserData.completed[quest.id] = quest.id;
-    localStorage.setItem('USER', JSON.stringify(caughtUserData)
-    );
-    window.location = '../map';
-}); 
+    setUserStats(caughtUserData);
+
+    mapButton.addEventListener('click', () => {
+        window.location = '../map';
+    });
+});
+
+const user = getUserStats();
+p2.textContent = userHealth(user);
+healthStats.append(p2);

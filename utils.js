@@ -69,7 +69,7 @@ export function renderIntroScreen() {
             completed: {},
         };
 
-        localStorage.setItem('USER', JSON.stringify(userFormData));
+        setUserStats(userFormData);
 
         window.location = './map';
 
@@ -78,4 +78,15 @@ export function renderIntroScreen() {
 
     return ul;
 
+}
+
+
+export function getUserStats() {
+    return JSON.parse(localStorage.getItem('USER'));
+}
+export function setUserStats(input) {
+    localStorage.setItem('USER', JSON.stringify(input));
+}
+export function userHealth(user) {
+    `${user.name} the ${user.character}: HP ${user.hp} GOLD ${user.gold}`;
 }
