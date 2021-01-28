@@ -1,5 +1,11 @@
+
 // import functions and grab DOM elements
 
-// initialize state
+import { renderIntroScreen } from "./utils.js";
+
+renderIntroScreen();
+
+
+
 
 // set event listeners to update state and DOM
