@@ -10,7 +10,7 @@ for (let quest of questData) {
     const li = document.createElement('li');
 
     anchor.textContent = quest.title;
-    anchor.href = '../quests/?id=${quest.id}';
+    anchor.href = `../quests/?id=${quest.id}`;
     li.append(anchor);
     listArea.append(li);
 
