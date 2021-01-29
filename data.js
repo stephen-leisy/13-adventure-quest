@@ -3,8 +3,8 @@ const bear = {
     id: 'bear',
     title: 'explore the bear cave',
     map: {
-        top: '89%',
-        left: '44%'
+        top: '29%',
+        right: '41%'
     },
     prerequisites: ['water'],
     image: 'scary-bear.png',
@@ -42,7 +42,7 @@ const water = {
     id: 'water-hazard',
     title: 'The bridge is out at the river and its pretty wild',
     map: {
-        top: '17%',
+        top: '40%',
         left: '37%'
     },
     image: 'river.png',
@@ -80,8 +80,8 @@ const path = {
     id: 'path',
     title: 'A fork in the road',
     map: {
-        top: '31%',
-        left: '5%'
+        top: '60%',
+        left: '65%'
     },
     prerequisites: ['water'],
     image: 'fork.png',

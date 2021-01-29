@@ -1,0 +1,30 @@
+* {
+    background-color: lightblue;
+    font-family: 'Potta One', cursive;
+    font-size: 1rem;
+}
+div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+}
+form {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}
+button {
+    color: goldenrod;
+}
+p {
+    margin-left: 40px;
+    margin-right: 40px;
+}

@@ -6,13 +6,16 @@ export function renderIntroScreen() {
     const li3 = document.createElement('li');
     const li4 = document.createElement('li');
     const li5 = document.createElement('li');
+    const li6 = document.createElement('li');
     // initialize state
 
     const nameSpan = document.createElement('span');
-    nameSpan.textContent = 'What is your name, fearless adventurer?';
+    nameSpan.textContent = 'What is your name, fearless adventurer? ';
     const nameForm = document.createElement('input');
     nameForm.name = `name`;
 
+    const animalSpan = document.createElement('span');
+    animalSpan.textContent = `what kind of animal are you?`;
     const player1NameSpan = document.createElement('span');
     player1NameSpan.textContent = 'cat';
     const player1Selector = document.createElement('input');
@@ -44,15 +47,16 @@ export function renderIntroScreen() {
 
 
     li1.append(nameSpan, nameForm);
-    li2.append(player1NameSpan, player1Selector);
-    li3.append(player2NameSpan, player2Selector);
-    li4.append(player3NameSpan, player3Selector);
-    li5.append(player4NameSpan, player4Selector);
+    li2.append(animalSpan);
+    li3.append(player1NameSpan, player1Selector);
+    li4.append(player2NameSpan, player2Selector);
+    li5.append(player3NameSpan, player3Selector);
+    li6.append(player4NameSpan, player4Selector);
 
     const enterButton = document.createElement('button');
     enterButton.textContent = 'lets play!';
 
-    ul.append(li1, li2, li3, li4, li5, enterButton);
+    ul.append(li1, li2, li3, li4, li5, li6, enterButton);
 
     const form = document.querySelector('form');
     form.addEventListener('submit', (e) => {
@@ -88,5 +92,5 @@ export function setUserStats(input) {
     localStorage.setItem('USER', JSON.stringify(input));
 }
 export function userHealth(user) {
-    `${user.name} the ${user.character}: HP ${user.hp} GOLD ${user.gold}`;
+    return `${user.name} the ${user.character}: HP ${user.hp} GOLD ${user.gold}`;
 }

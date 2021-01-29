@@ -18,9 +18,14 @@ body {
     --gutter: 30px;
     --footer-height: 25px;
     
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Potta One';
     background-color: lightblue;
+    color: goldenrod;
 
+}
+
+section {
+    font-family: 'Potta One', cursive;
 }
 
 main {
@@ -29,6 +34,19 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    position: relative;
+}
+
+img {
+    max-width: 600px;
+    max-width: 600px;
+    position: relative;
+}
+
+
+
+li {
+    position: absolute;
 }
 
 section {
