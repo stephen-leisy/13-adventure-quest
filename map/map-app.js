@@ -15,13 +15,6 @@ if (user.win >= 3 || user.hp <= 0) {
 }
 
 
-
-
-// const span = document.createElement('span');
-// const img = document.createElement('img');
-// img.src = '../assets/map.png';
-// span.append(img);
-
 for (let quest of questData) {
 
     const anchor = document.createElement('a');

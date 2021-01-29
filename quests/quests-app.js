@@ -8,9 +8,6 @@ const form = document.querySelector('form');
 const results = document.querySelector('#results-window');
 const healthStats = document.querySelector('#header-hp-gold');
 const p2 = document.createElement('p');
-// const buttonSpot = document.getElementById('button-spot');
-
-
 
 const params = new URLSearchParams(window.location.search);
 const questID = params.get('id');
@@ -20,7 +17,7 @@ const quest = findById(questData, questID);
 h1.textContent = quest.title;
 img.src = `../assets/${quest.image}`;
 p.textContent = quest.description;
-// console.log(quest.choices[0].result);
+
 
 for (let choice of quest.choices) {
     const choiceButton = document.createElement('input');
